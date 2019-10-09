@@ -14,3 +14,12 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('todo', 'todoController@index')->name('todoIndex');
+Route::get('todo/{id}/details', 'todoController@getById')->name('getById');
+Route::get('todo/finished', 'todoController@finishedTodo')->name('finishedTodo');
+Route::get('todo/new', 'todoController@new')->name("newTodo");
+Route::post('todo/new', 'todoController@create')->name("addTodo");
+Route::get('todo/{id}/edit', 'todoController@edit')->name("editTodo");
+Route::post('todo/{id}/edit', 'todoController@update')->name("updateTodo");
+Route::get('todo/{id}/delete', 'todoController@delete')->name("deleteTodo");
